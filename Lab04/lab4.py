@@ -44,3 +44,11 @@ pm.summary(trace)
 alpha_max_estimated = trace["alpha"].max()
 
 print(f"α maxim este: {alpha_max_estimated:.4f}")
+
+# timpul mediu pt pregtirea comenzii
+mean_cook_time = 1 / alpha_max_estimated
+
+# timpul mediu de asteptare pt un client
+mean_waiting_time = mean_order_time + mean_cook_time
+
+print(f"timpul mediu de asteptare pt a fi servit un client este {mean_waiting_time:.2f} minute")
