@@ -15,9 +15,8 @@ for i, Y in enumerate(Y_values):
             # Distrib binomiala pt Y
             y = pm.Binomial('Y', n=n, p=theta, observed=Y)
 
-            # Distrib a posteriori
             trace = pm.sample(2000, tune=1000, cores=1)
-
+           # afiseaza distrib a posteriori
         pm.plot_posterior(trace, ax=axs[i, j])
         axs[i, j].set_title(f'Y = {Y}, θ = {theta}')
 
