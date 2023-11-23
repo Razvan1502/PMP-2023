@@ -4,6 +4,12 @@ from scipy import stats
 
 import matplotlib.pyplot as plt
 import arviz as az
+"""
+Se consideră un experiment aleator prin aruncarea de 10 ori a două monezi, una nemăsluită, cealaltă cu
+probabilitatea de 0.3 de a obţine stemă. Să se genereze 100 de rezultate independente ale acestui experiment şi astfel
+să se determine grafic distribuţiile variabilelor aleatoare care numără rezultatele posibile în cele 10 aruncări (câte una
+pentru fiecare rezultat posibil: ss, sb, bs, bb).
+"""
 
 # Solutia cu triviala prin generarea de monezi si iterarea + calcularea distributiilor manual
 bb = []
@@ -11,7 +17,7 @@ bs = []
 sb = []
 ss = []
 for i in range(100):
-    stema_moneda1 = stats.binom.rvs(1,0.5, size=10)
+    stema_moneda1 = stats.binom.rvs(1,0.5, size=10) #lista de 10 var aleatoare binomiale n=1 (nr de incercari) și p=0.5 (probab pt stema)
     stema_moneda2 = stats.binom.rvs(1,0.3, size=10)
     bb_c = 0
     bs_c = 0

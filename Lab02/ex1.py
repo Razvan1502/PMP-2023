@@ -4,7 +4,17 @@ from scipy import stats
 import matplotlib.pyplot as plt
 import arviz as az
 
-np.random.seed(1) 
+np.random.seed(1)
+
+"""     AM LUAT 2.5/3
+Ex. 1 (1pct.) Doi mecanici schimbă filtrele de ulei pentru autoturisme într-un service. Timpul de servire este exponenţial
+cu parametrul λ1 = 4 hrs−1 în cazul primului mecanic si λ2 = 6 hrs−1 în cazul celui de al doilea. Deoarece al doilea
+mecanic este mai rapid, el serveşte de 1.5 ori mai mulţi clienţi decât partenerul său. Astfel când un client ajunge la rând,
+probabilitatea de a servit de primul mecanic este 40%. Fie X timpul de servire pentru un client.
+Generaţi 10000 de valori pentru X, şi în felul acesta estimaţi media şi deviaţia standard a lui X. Realizaţi un grafic al
+densităţii distribuţiei lui X.
+Notă: Distribuţia Exp(λ) se poate apela cu stats.expon(0,1/λ) sau stats.expon(scale=1/λ).
+"""
 
 lambda1 = 4**-1 
 lambda2 = 6**-1  

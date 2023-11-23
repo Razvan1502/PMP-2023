@@ -1,10 +1,16 @@
 import numpy as np
 from scipy import stats
-
 import matplotlib.pyplot as plt
 import arviz as az
 
 np.random.seed(1)
+
+"""
+Se consideră un experiment aleator prin aruncarea de 10 ori a două monezi, una nemăsluită, cealaltă cu
+probabilitatea de 0.3 de a obţine stemă. Să se genereze 100 de rezultate independente ale acestui experiment şi astfel
+să se determine grafic distribuţiile variabilelor aleatoare care numără rezultatele posibile în cele 10 aruncări (câte una
+pentru fiecare rezultat posibil: ss, sb, bs, bb).
+"""
 
 prob_stema_moneda1 = 0.5  # moneda nemasluita
 prob_stema_moneda2 = 0.3  

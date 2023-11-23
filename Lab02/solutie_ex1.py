@@ -5,6 +5,16 @@ from scipy import stats
 import matplotlib.pyplot as plt
 import arviz as az
 
+"""
+Ex. 1 (1pct.) Doi mecanici schimbă filtrele de ulei pentru autoturisme într-un service. Timpul de servire este exponenţial
+cu parametrul λ1 = 4 hrs−1 în cazul primului mecanic si λ2 = 6 hrs−1 în cazul celui de al doilea. Deoarece al doilea
+mecanic este mai rapid, el serveşte de 1.5 ori mai mulţi clienţi decât partenerul său. Astfel când un client ajunge la rând,
+probabilitatea de a servit de primul mecanic este 40%. Fie X timpul de servire pentru un client.
+Generaţi 10000 de valori pentru X, şi în felul acesta estimaţi media şi deviaţia standard a lui X. Realizaţi un grafic al
+densităţii distribuţiei lui X.
+Notă: Distribuţia Exp(λ) se poate apela cu stats.expon(0,1/λ) sau stats.expon(scale=1/λ).
+"""
+
 m1 = stats.expon.rvs(0,1/4, size=10000) # Distributie exponentiala a timpului de servire a primului mecanic
 m2 = stats.expon.rvs(0,1/6, size=10000) # Distributie exponentiala a timpului de service a mecanicului 2
 servit_m1 = stats.binom.rvs(1,0.4, size=10000) # Distributia sansei de a fi preluat de mecanicul 1 este reprezentata printr-o distributie binomiala cu probabilitatea de 40%
@@ -29,6 +39,9 @@ X_incorrect = m1*0.4+m2*0.6
 
 az.plot_posterior({'Incorrect X':X_incorrect, 'Correct X':X})
 plt.show()
+
+
+
 
 # O alta solutie, partial incorecta, ar fi de generat 4000 sample-uri pentru m1 si 6000 sample-uri pentru m2
 # aceasta solutie are sa aiba media corecta si functia de densitate foarte apropiata dar elimina modelarea "sansei" sa fi servit de mecanicul 1
