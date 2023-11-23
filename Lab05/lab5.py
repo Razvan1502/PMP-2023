@@ -1,6 +1,8 @@
 import pymc3 as pm
 import pandas as pd
 
+"Am luat 0.5/2"
+
 trafic = pd.read_csv(r'D:\PMP\PMP-2023-2024\Lab05\trafic.csv')
 valori = trafic['nr. masini'].values
 
