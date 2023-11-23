@@ -4,6 +4,15 @@ import pymc as pm
 import numpy as np
 import arviz as az
 
+"""Preziceţi consumul unei maşini (în mile/galon: mpg) pe baza cailor putere (CP). Fişierul auto-mpg.csv
+conţine un set de date cu observaţii, din care ne interesează doar cele corespunzătoare cailor putere şi valorile
+mpg corespunzătoare.
+a. (0.5p.) Încărcaţi setul de date într-un Pandas DataFrame şi trasaţi un grafic (după eventuala curăţare
+a datelor) pentru a vizualiza relaţia de dependenţă dintre cele două variabile: CP şi mpg.
+b. (1p.) Definiţi modelul în PyMC folosind CP ca variabilă independentă şi mpg ca variabilă dependentă.
+c. (1p.) Determinaţi care este dreapta de regresie care se potriveşte cel mai bine datelor.
+d. (0.5p.) Adăugaţi graficului de la punctul a regiunea 95%HDI pentru distribuţia predictivă a posteriori.
+Ce concluzie puteţi trage asupra modelului? """
 
 df = pd.read_csv('auto-mpg.csv')
 
