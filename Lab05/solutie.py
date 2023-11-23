@@ -90,6 +90,7 @@ for i in range(100):
     cook_nr = stats.expon.rvs(loc=3, size=20).mean()
     meanlist.append(copy.deepcopy(cook_nr))
 
+
 with pm.Model() as model:
     alpha = 3
     nr_clienti = pm.Poisson("nr_clienti", mu=20)
