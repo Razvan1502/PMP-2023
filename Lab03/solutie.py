@@ -4,6 +4,19 @@ from pgmpy.inference import VariableElimination
 import networkx as nx
 import matplotlib.pyplot as plt
 
+"""
+Un depozit de marfă este echipat cu alarmă de incendiu. Pentru o zi dată, probabilitatea să aibă loc un
+cutremur in zona depozitului este de 0.05%.
+Şansa ca un incendiu să se declanşeze la depozit este aproximată la 1% in mod normal dar, dacă a avut loc
+un cutremur, aceasta creşte la 3%.
+Alarma de incendiu are probabilitatea să se declanşeze accidental de 0.01%, dar în caz de cutremur această
+declanşare accidentală urcă la 2%; în caz de incendiu alarma are 95% şansă de declanşare, iar dacă a avut loc
+şi cutremur şi incendiu, alarma se declanşează cu probabilitatea de 98%.
+1. Definiti modelul probabilist, folosind pgmpy, care sa descrie contextul de mai sus. (1p)
+2. Ştiind că alarma de incendiu a fost declanşată, calculaţi probabilitatea să fi avut loc un cutremur. (1p)
+3. Afişaţi probabilitatea ca un incendiu sa fi avut loc, fără ca alarma de incendiu să se activeze. (1p)
+"""
+
 model = BayesianNetwork([('cutremur', 'incendiu'), ('cutremur', 'alarma'), ('incendiu', 'alarma')])
 
 cutremur = TabularCPD(variable='cutremur', variable_card=2,
