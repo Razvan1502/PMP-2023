@@ -42,21 +42,21 @@ with pm.Model() as model_g:
     eps = pm.HalfCauchy('eps', 5)
     mu = pm.Deterministic('mu', alpha + beta * x)
     y_pred = pm.Normal('y_pred', mu=mu, sigma=eps, observed=y)
-    idata_g = pm.sample(500, return_inferencedata=True)
+    idata_g = pm.sample(500, return_inferencedata=True,cores=1)
 
 
 
 #c
 plt.plot(x, y, 'C0.')
-posterior_g = idata_g.posterior.stack(samples={"chain", "draw"})
-alpha_m = posterior_g['alpha'].mean().item()
-beta_m = posterior_g['beta'].mean().item()
+posterior_g = idata_g.posterior.stack(samples={"chain", "draw"}) #distrib posteriori
+alpha_m = posterior_g['alpha'].mean().item() #media alfa
+beta_m = posterior_g['beta'].mean().item() #media beta
 draws = range(0, posterior_g.samples.size, 10)
 
 plt.plot(x, posterior_g['alpha'][draws].values
-         + posterior_g['beta'][draws].values * x[:,None], c='gray', alpha=0.5)
+         + posterior_g['beta'][draws].values * x[:,None], c='gray', alpha=0.5) #diversele drepte de regresie obținute
 
-plt.plot(x, alpha_m + beta_m * x, c='k', label=f'y = {alpha_m:.2f} + {beta_m:.2f} * x')
+plt.plot(x, alpha_m + beta_m * x, c='k', label=f'y = {alpha_m:.2f} + {beta_m:.2f} * x') #traseaza dr de regresie medie
 plt.xlabel('x')
 plt.ylabel('y', rotation=0)
 plt.legend()
