@@ -1,7 +1,19 @@
-import pymc3 as pm
+import pymc as pm
 import numpy as np
 
-
+""" 1PCT/ 2 
+Doreşti sa deschizi o nouă locaţie fast-food în oraş. Analizând volumul de trafic al locaţiei, aproximezi ca
+numărul de clienţi care ar intra în restaurant umează o distribuţie Poisson de parametru λ = 20 clienţi/oră.
+Timpul de plasare si plată a unei comenzi la o casă urmează o distribuţie normală cu media de 2 minute si
+deviatie standard de 0.5 minute. O staţie de gătit pregateste o comandă intr-un timp descris de o distribuţie
+exponenţială cu media de α minute.
+1. Definiţi modelul probabilist care sa descrie contextul de mai sus. (0.5p - deadline: sfârşitul seminarului)
+2. Determinaţi care este (cu aproximaţie) α maxim pentru a le putea servi mancarea intr-un timp mai scurt
+de 15 minute tuturor clienţilor care intră într-o oră, cu o probabilitate de 95%. (1p - deadline: sfârşitul zilei de
+seminar)
+3. Cu α astfel calculat, determinaţi timpul mediu de aşteptare pentru a fi servit al unui client. (0.5p -
+deadline: sfârşitul zilei de seminar)
+"""
 lmbda = 20  # clienti/ora
 mean_order_time = 2 
 std_dev_order_time = 0.5
