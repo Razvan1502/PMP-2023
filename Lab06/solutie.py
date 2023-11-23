@@ -4,6 +4,16 @@ import pymc as pm
 import arviz as az
 from scipy import stats
 
+"""
+Un magazin este vizitat de n clienţi într-o anumită zi. Numărul Y de clienţi care cumpără un anumit produs
+e distribuit Binomial(n, θ), unde θ este probabilitatea ca un client să cumpere acel produs. Să presupunem că
+îl cunoaştem pe θ şi că distribuţia a priori pentru n este Poisson(10).
+1. (1pt) Folosiţi PyMC pentru a calcula distribuţia a posteriori pentru n pentru toate combinaţiile de
+Y ∈ {0, 5, 10} şi θ ∈ {0.2, 0.5}. Folosiţi az.plot_posterior pentru a vizualiza toate rezultatele
+(ideal, într-o singură fereastră).
+2. (1pt) Explicaţi efectul lui Y şi θ asupra distribuţiei a posteriori.
+"""
+
 '''
 Din grafice se observa urmatoarele:
 
