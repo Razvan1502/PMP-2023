@@ -39,3 +39,4 @@ print(result)
 result = inference.query(variables=['incendiu'] , evidence={'alarma': 0})
 
 print(result)
+
