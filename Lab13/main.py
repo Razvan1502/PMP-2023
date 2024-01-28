@@ -3,6 +3,24 @@ import arviz as az
 import matplotlib.pyplot as plt
 import pandas as pd
 
+"""ArviZ include InferenceData precalculate pentru anumite modele. Vom încărca două astfel de modele
+dintr-un exemplu clasic din Statistica Bayesiană, anume “modelul celor opt şcoli”1
+, prin
+
+az.load_arviz_data("centered_eight") : modelul centrat;
+az.load_arviz_data("non_centered_eight") : modelul necentrat - versiunea reparametrizată a modelului centrat.
+
+1. Pentru fiecare model, identificaţi numărul de lanţuri, mărimea totală a eşantionului generat şi vizual-
+izaţi distribuţia a posteriori. (0.5p)
+
+2. Folosiţi ArviZ pentru a compara cele două modele, după criteriile Rˆ (Rhat) şi autocorelaţie. Concentraţi-
+vă pe parametrii mu şi tau . (1p)
+
+3. Număraţi numărul de divergenţe din fiecare model (cu sample_stats.diverging.sum() ), iar apoi
+
+identificaţi unde acestea tind să se concentreze în spaţiul parametrilor (mu şi tau ). Puteţi folosi mo-
+delul din curs, cu az.plot pair sau az.plot parallel . (0.5p)"""
+
 model1=az.load_arviz_data("centered_eight")
 model2=az.load_arviz_data("non_centered_eight")
 
@@ -48,7 +66,8 @@ _, ax = plt.subplots(1, 2, sharey=True, sharex=True, figsize=(10, 5),
 constrained_layout=True)
 
 for idx, tr in enumerate([model1, model2]):
-    az.plot_pair(tr, var_names=['mu', 'tau'], kind='scatter',divergences=True, divergences_kwargs={'color':'C1'},ax=ax[idx])
+    az.plot_pair(tr, var_names=['mu', 'tau'], kind='scatter',divergences=True,
+                 divergences_kwargs={'color':'C1'},ax=ax[idx])
 
 ax[idx].set_title(['centered', 'non-centered'][idx])
 plt.show()
