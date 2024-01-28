@@ -4,6 +4,17 @@ import scipy.stats as stats
 import matplotlib.pyplot as plt
 import arviz as az
 
+""" Am luat 2/3 pct
+Pe modelul polinomial din curs, în codul care generează datele (din fişierul date.csv), schimbaţi order=2
+cu o altă valoare, de exemplu order=5.
+a. Faceţi apoi inferenţa cu model_p şi reprezentaţi grafic această curbă. (0.5p)
+b. Repetaţi, dar folosind o distribuţie pentru beta cu sd=100 în loc de sd=10. În ce fel sunt curbele
+diferite? Încercaţi acest lucru şi cu sd=np.array([10, 0.1, 0.1, 0.1, 0.1]). (0.5p)
+2. Repetaţi exerciţiul precedent, dar creşteţi numărul de date la 500 de puncte. (1p)
+3. Faceţi inferenţa cu un model cubic (order=3), calculaţi WAIC şi LOO, reprezentaţi grafic rezultatele şi
+comparaţi-le cu modelele liniare şi pătratice. (1p)
+"""
+
 az.style.use('arviz-darkgrid')
 dummy_data = np.loadtxt('./data/dummy.csv')
 x_1 = dummy_data[:, 0]
@@ -35,7 +46,7 @@ if __name__ == '__main__':
             idata_p_sd_10 = pm.sample(2000, return_inferencedata=True)
 
         # model_l
-        x_new = np.linspace(x_1s[0].min(), x_1s[0].max(), 100)
+        x_new = np.linspace(x_1s[0].min(), x_1s[0].max(), 100) #
         α_l_post = idata_l.posterior['α'].mean(("chain", "draw")).values
         β_l_post = idata_l.posterior['β'].mean(("chain", "draw")).values
         y_l_post = α_l_post + β_l_post * x_new
